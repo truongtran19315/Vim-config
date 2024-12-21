@@ -93,7 +93,7 @@ Below is a comprehensive list of key mappings configured in Vim to enhance produ
 ---
 
 
-# Tổng Hợp Các Phím Tắt Trong Cấu Hình Vim cho Deveploper Linux Kernel
+# Tổng Hợp Các Phím Tắt Trong Cấu Hình Vim cho Linux Kernel Developer
 
 Dưới đây là danh sách các phím tắt được cấu hình trong Vim nhằm nâng cao hiệu suất làm việc khi phát triển Linux Kernel bằng ngôn ngữ C.
 

@@ -27,13 +27,37 @@ set textwidth=0      " No automatic line wrapping
 set wrapmargin=0
 set nowrap
 set number
-set relativenumber
+" set relativenumber
+set norelativenumber
 set cursorline
 set showmatch
 set t_Co=256
 syntax on
-" colorscheme desert (common choice, change as preferred)
+" colorscheme desert 
 colorscheme desert
+
+" ============================
+" Highlight matching parentheses, brackets, braces, and quotes
+" ============================
+set showmatch       " Show matching parenthesis, bracket, brace, or quote
+set matchtime=2     " Time in tenths of a second for matching
+set timeoutlen=500  " Timeout for key sequence
+
+" ============================
+" Enable automatic jumping to matching parentheses, brackets, braces, and quotes
+" ============================
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap ' ''<left>
+inoremap " ""<left>
+inoremap ` ``<left>
+
+" ============================
+" Enable enhanced highlighting for matching brackets, braces, and quotes
+" ============================
+highlight MatchParen cterm=bold ctermbg=yellow guibg=yellow
+
 
 " ============================
 " Filetype and Plugins
@@ -91,9 +115,10 @@ Plug 'tpope/vim-fugitive'                  " Git integration
 Plug 'airblade/vim-gitgutter'              " Git diff in the gutter
 Plug 'vim-scripts/DoxygenToolkit.vim'      " Doxygen comments
 Plug 'google/vim-maktaba'                  " Advanced help system
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Cscope Integration
-Plug 'vim-scripts/cscope_maps.vim'
+" Cscope Integration https://vimawesome.com/plugin/cscope-maps-treacherous
+Plug 'gnattishness/cscope_maps'
 
 " ============================
 " Initialize Plugins
@@ -263,3 +288,16 @@ else
     map <M-Down> ]s
     map <M-Up> [s
 endif
+
+" ============================
+" Coc.nvim Key Mappings
+" ============================
+
+" Use Enter to confirm completion
+inoremap <silent><expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+
+" Use Tab to navigate down in the completion menu
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+
+" Use Shift+Tab to navigate up in the completion menu
+inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
